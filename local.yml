@@ -37,3 +37,23 @@
       owner: roger
       group: roger
 
+  - name : add ansible user
+    user:
+      name: waldo
+      system: yes
+
+  - name: set up sudo for ansible user
+    copy:
+      src: files/sudoer_waldo
+      dest: /etc/sudoers.d/waldo
+      owner: root
+      group: root
+      mode: 0440
+
+  - name: add ansible-pull cron job
+    cron:
+      name: ansible auto-provision
+      user: waldo
+      minute: "*/10"
+      job: ansible-pull -o -U https://github.com/rahouseholder/Ansible_desktop.git
+
