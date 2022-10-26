@@ -28,7 +28,7 @@
     become_user: roger
     dconf: 
       key: "/org/gnome/dektop/background/picture-options"
-      value: "'zoom'"
+      value: "'scaled'"
 
   - name: copy .bashrc file
     copy:
