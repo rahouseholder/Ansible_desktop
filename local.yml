@@ -32,7 +32,7 @@
 
   - name: copy .bashrc file
     copy:
-      src: file/bashrc
+      src: files/bashrc
       dest: /home/roger/.bashrc
       owner: roger
       group: roger
